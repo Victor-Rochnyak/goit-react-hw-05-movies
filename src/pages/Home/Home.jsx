@@ -4,6 +4,7 @@ import { getTrendingMovie } from 'components/Api/Api';
 import MovieGallary from 'pages/Movies/MovieGalary/MovieGallary';
 // стилі
 import { Section } from './Home.styled';
+
 export function Home() {
   const [trendingMovie, setTrendingMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
