@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { getTrendingMovie } from 'components/Api/Api';
-import MovieGallary from 'pages/Movies/MovieGallary';
+import MovieGallary from 'pages/Movies/MovieGalary/MovieGallary';
 // стилі
 import { Section } from './Home.styled';
 export function Home() {

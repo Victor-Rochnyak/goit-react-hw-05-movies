@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, NavLink } from 'react-router-dom';
 import { URL_POSTER } from 'components/Api/ApiConfig';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 // Рендер  інфо фільма в MovieGallary на сторінці Home
 export default function MovieGallary({ movies, isLoading }) {
   const location = useLocation();
