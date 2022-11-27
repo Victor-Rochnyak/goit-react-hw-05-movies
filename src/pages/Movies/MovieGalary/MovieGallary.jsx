@@ -10,6 +10,8 @@ export default function MovieGallary({ movies, isLoading }) {
   return (
     <ul>
       {isLoading ? (
+        <ClipLoader />
+      ) : (
         movies.map(({ id, original_title, poster_path, title }) => (
           <li key={id}>
             <NavLink to={`/movies/${id}`} state={{ from: location }}>
@@ -26,8 +28,6 @@ export default function MovieGallary({ movies, isLoading }) {
             </NavLink>
           </li>
         ))
-      ) : (
-        <ClipLoader />
       )}
     </ul>
   );

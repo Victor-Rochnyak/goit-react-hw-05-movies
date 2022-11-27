@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { toast } from 'react-toastify';
+
 
 import { KEY, API } from './ApiConfig';
 
@@ -19,7 +19,7 @@ import { KEY, API } from './ApiConfig';
 // };
 
 export const getTrendingMovie = async () => {
-  const response = await axios.get(`${API}3/trending/all/day?api_key=${KEY}`);
+  const response = await axios.get(`${API}3/trending/movie/day?api_key=${KEY}`);
   return response.data.results;
 };
 
@@ -29,7 +29,7 @@ export const getSearchMovie = async query => {
 };
 export const getMovieDetails = async movieId => {
   const response = await axios.get(`${API}3/movie/${movieId}?api_key=${KEY}&language=en-US&page=1`);
-  return response.data.results;
+  return response.data;
 };
 
 export const getMovieCast = async movieId => {

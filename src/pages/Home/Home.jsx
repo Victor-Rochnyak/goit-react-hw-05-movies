@@ -7,7 +7,7 @@ import { Section } from './Home.styled';
 
 export function Home() {
   const [trendingMovie, setTrendingMovie] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // віклик функції запросу API trending films
   useEffect(() => {
@@ -18,7 +18,7 @@ export function Home() {
         console.log(trendMovies);
       } catch (error) {
       } finally {
-        setIsLoading(true);
+        setIsLoading(false);
       }
     };
     renderTrendMovies();
@@ -29,7 +29,7 @@ export function Home() {
     <main>
       <Section>
         <h1>Trading movies today</h1>
-        {<MovieGallary isLoading={isLoading} movies={trendingMovie} />}
+        <MovieGallary isLoading={isLoading} movies={trendingMovie} />
       </Section>
     </main>
   );

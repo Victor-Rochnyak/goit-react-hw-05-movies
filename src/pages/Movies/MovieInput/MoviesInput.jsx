@@ -4,14 +4,19 @@ import { getSearchMovie } from 'components/Api/Api';
 import MovieGallary from '../MovieGalary/MovieGallary';
 // import { FaSearch } from "react-icons/fa";
 import ClipLoader from 'react-spinners/ClipLoader';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //стилі
-import { H1,Div,Form,Input } from './MovieInput.styled';
+import { H1, Div, Form, Input } from './MovieInput.styled';
+import { FaSearch } from 'react-icons/fa';
 
 export function Movie() {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [isLoading, setIsLoading] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const notify = () => toast('Sory, films is not defined');
 
   const movieSearch = searchParams.get('query');
 
@@ -20,14 +25,15 @@ export function Movie() {
   };
 
   const onFormSubmit = event => {
-    event.priventDefault();
+    event.preventDefault();
     setSearchParams({ query: query });
     setQuery('');
   };
 
   useEffect(() => {
-    if (movieSearch) return;
-    async function serachMovies() {
+    if (!movieSearch) return;
+
+    async function searchMovies() {
       try {
         setIsLoading(true);
         const movieResponse = await getSearchMovie(movieSearch);
@@ -38,7 +44,7 @@ export function Movie() {
         setIsLoading(false);
       }
     }
-    serachMovies();
+    searchMovies();
   }, [movieSearch]);
 
   return (
@@ -54,14 +60,16 @@ export function Movie() {
               onChange={handleChange}
             />
           </label>
-          <button type="submit"></button>
+          <button type="submit" onClick={notify}>
+            <FaSearch />
+          </button>
         </Form>
         {isLoading ? (
           <ClipLoader />
         ) : (
           movies && <MovieGallary movies={movies} />
         )}
-        {movies.length > 0 && 'no films'}
+        {movies.length === 0 && <ToastContainer />}
       </Div>
     </main>
   );

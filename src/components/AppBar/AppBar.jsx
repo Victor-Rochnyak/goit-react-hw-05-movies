@@ -1,8 +1,8 @@
 
 import { Header, Nav,NavItem} from './AppBar.styled';
 const navItems = [
-  { href: 'Home', text: 'Home' },
-  { href: 'Movie', text: 'Movie' },
+  { href: '/', text: 'Home' },
+  { href: 'movies', text: 'Movie' },
 ];
 
 export const AppBar = () => {
