@@ -1,6 +1,8 @@
 import React from 'react';
 import { URL_POSTER, LOGO_URL } from 'components/Api/ApiConfig';
 import { GiFilmSpool } from 'react-icons/gi';
+// стилі
+// import { Div } from './MovieInfo.styled';
 
 export function MovieInfo({ info }) {
   const {
@@ -31,7 +33,8 @@ export function MovieInfo({ info }) {
               {logo_path ? (
                 <img src={`${LOGO_URL}${logo_path}`} alt="logo" />
               ) : (
-                <></>
+                // <></>
+                <GiFilmSpool size={65} />
               )}
             </div>
           ))}
