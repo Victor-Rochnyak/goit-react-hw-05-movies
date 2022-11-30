@@ -1,5 +1,7 @@
+import { Header, Ul, Img,ClickLink,DivLogo,Div, NavItem,Li } from './AppBar.styled';
+// import { Link } from 'react-router-dom';
+import logo from '../../assets/tmovie.png';
 
-import { Header, Nav,NavItem} from './AppBar.styled';
 const navItems = [
   { href: '/', text: 'Home' },
   { href: 'movies', text: 'Movie' },
@@ -8,13 +10,21 @@ const navItems = [
 export const AppBar = () => {
   return (
     <Header>
-      <Nav >
-        {navItems.map(({ href, text }) => (
-          <NavItem to={href} key={href}>
-            {text}
-          </NavItem>
-        ))}
-      </Nav>
+      <Div>
+        <DivLogo>
+          <Img src={logo} alt="" />
+          <ClickLink to="/">tMovies</ClickLink>
+        </DivLogo>
+        <Ul>
+          {navItems.map(({ href, text }) => (
+            <Li>
+              <NavItem to={href} key={href}>
+                {text}
+              </NavItem>
+            </Li>
+          ))}
+        </Ul>
+      </Div>
     </Header>
   );
 };
