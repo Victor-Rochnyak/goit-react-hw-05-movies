@@ -1,10 +1,15 @@
 import React from 'react';
 import { URL_POSTER, LOGO_URL } from 'components/Api/ApiConfig';
 import { GiFilmSpool } from 'react-icons/gi';
+import { HiBackspace } from 'react-icons/hi';
+import { IconContext } from 'react-icons';
+import { useLocation, NavLink } from 'react-router-dom';
 // стилі
-// import { Div } from './MovieInfo.styled';
+import { Div } from './MovieInfo.styled';
 
 export function MovieInfo({ info }) {
+  const location = useLocation();
+
   const {
     poster_path,
     original_title,
@@ -14,12 +19,18 @@ export function MovieInfo({ info }) {
     genres,
     production_companies,
   } = info;
+  const from = location.state?.from ?? '/';
 
   const getYear = () => new Date(`${release_date}`).getFullYear();
   const getScore = () => Math.round(`${vote_average}` * 10);
 
   return (
-    <div backdrop={info}>
+    <Div backdrop={info}>
+      <NavLink to={from}>
+        <IconContext.Provider value={{ color: '#734cf7' }}>
+          <HiBackspace size={35} />
+        </IconContext.Provider>
+      </NavLink>
       <div>
         <img
           src={poster_path ? `${URL_POSTER}${poster_path}` : 'no image'}
@@ -33,8 +44,8 @@ export function MovieInfo({ info }) {
               {logo_path ? (
                 <img src={`${LOGO_URL}${logo_path}`} alt="logo" />
               ) : (
-                // <></>
-                <GiFilmSpool size={65} />
+                <></>
+                // <GiFilmSpool size={65} />
               )}
             </div>
           ))}
@@ -50,6 +61,6 @@ export function MovieInfo({ info }) {
         <p>Genres:</p>
         <p>{genres.map(genre => genre.name).join(', ')}</p>
       </div>
-    </div>
+    </Div>
   );
 }

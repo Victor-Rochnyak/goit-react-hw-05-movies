@@ -1,15 +1,17 @@
 import React, { useEffect, useState, Suspense } from 'react';
 import { useParams, useLocation, Outlet, NavLink } from 'react-router-dom';
 import { getMovieDetails } from 'components/Api/Api';
-import { HiBackspace } from 'react-icons/hi';
+// import { HiBackspace } from 'react-icons/hi';
+// import { IconContext } from 'react-icons';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { MovieInfo } from '../MovieInfo/MovieInfo';
 
-
+//Стилі
+import { Div} from './MovieDetails.styled';
 export function MovieDetails() {
   const [movie, setMovie] = useState(0);
   const { movieId } = useParams();
-  const location = useLocation();
+  
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -26,30 +28,26 @@ export function MovieDetails() {
     }
     getMovieId();
   }, [movieId]);
-console.log(movie)
-  const from = location.state?.from ?? '/';
+  // const from = location.state?.from ?? '/';
 
   return (
     <>
       {movie && (
-        <div>
-          <NavLink to={from}>
-            <div>
-              <HiBackspace size={35} />
-            </div>
-          </NavLink>
+        <main>
           {isLoading ? <ClipLoader /> : <MovieInfo info={movie}></MovieInfo>}
           <div>
             <div> Additional information</div>
             <div>
               <ul>
                 <li>
-                  <NavLink to="cast" state={{ from }}>
+                  <NavLink to="cast">
+                    {/* state={{ from }} */}
                     Cast
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="reviews" state={{ from }}>
+                  <NavLink to="reviews">
+                    {/*  state={{ from }} */}
                     Reviews
                   </NavLink>
                 </li>
@@ -59,7 +57,7 @@ console.log(movie)
               <Outlet />
             </Suspense>
           </div>
-        </div>
+        </main>
       )}
     </>
   );

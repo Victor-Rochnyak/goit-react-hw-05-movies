@@ -17,7 +17,7 @@ export const AppBar = () => {
         </DivLogo>
         <Ul>
           {navItems.map(({ href, text }) => (
-            <Li>
+            <Li key={href}>
               <NavItem to={href} key={href}>
                 {text}
               </NavItem>

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getTrendingMovie } from 'components/Api/Api';
 import MovieGallary from 'pages/Movies/MovieGalary/MovieGallary';
 // стилі
-import { Section } from './Home.styled';
+import { Section,H1 } from './Home.styled';
 
 export function Home() {
   const [trendingMovie, setTrendingMovie] = useState([]);
@@ -28,7 +28,7 @@ export function Home() {
   return (
     <main>
       <Section>
-        <h1>Trading movies today</h1>
+        <H1>Trading movies</H1>
         <MovieGallary isLoading={isLoading} movies={trendingMovie} />
       </Section>
     </main>
