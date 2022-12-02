@@ -2,14 +2,19 @@ import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
-  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 50px;
+  z-index: 100;
   padding: 15px;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
- 
+  /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+  transition: height 0.3s ease, background-color 0.3s ease;
 `;
 
 export const Div = styled.div`
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,6 +52,10 @@ export const Img = styled.img`
 
 export const Li = styled.li`
   display: flex;
+  position: relative;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding:4px 0;
 
   &:not(:last-child) {
     margin-right: 20px;
@@ -54,10 +63,7 @@ export const Li = styled.li`
 `;
 
 export const NavItem = styled(NavLink)`
-  position: relative;
   font-family: 'Segoe UI';
-  font-weight: 500;
-  font-size: 20px;
   color: white;
   /* background-color: #fff;
   padding: 10px;
