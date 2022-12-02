@@ -7,11 +7,12 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { MovieInfo } from '../MovieInfo/MovieInfo';
 
 //Стилі
-import { Div} from './MovieDetails.styled';
+import { Div } from './MovieDetails.styled';
+
 export function MovieDetails() {
   const [movie, setMovie] = useState(0);
   const { movieId } = useParams();
-  
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -36,23 +37,21 @@ export function MovieDetails() {
         <main>
           {isLoading ? <ClipLoader /> : <MovieInfo info={movie}></MovieInfo>}
           <div>
-            <div> Additional information</div>
-            <div>
-              <ul>
-                <li>
-                  <NavLink to="cast">
-                    {/* state={{ from }} */}
-                    Cast
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="reviews">
-                    {/*  state={{ from }} */}
-                    Reviews
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+            <p> Additional information</p>
+            <ul>
+              <li>
+                <NavLink to="cast">
+                  {/* state={{ from }} */}
+                  Cast
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="reviews">
+                  {/*  state={{ from }} */}
+                  Reviews
+                </NavLink>
+              </li>
+            </ul>
             <Suspense fallback={<div>Loading...</div>}>
               <Outlet />
             </Suspense>
