@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+export const Section = styled.section`
+
+`;
 export const Div = styled.div`
   padding-top: 20px;
 `;
@@ -15,6 +18,5 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-border-radius: 5px;
-
+  border-radius: 5px;
 `;

@@ -48,7 +48,7 @@ export function Movie() {
   }, [movieSearch]);
 
   return (
-    <main>
+    <>
       <Div>
         <H1>поиск фильмов</H1>
         <Form action="" onSubmit={onFormSubmit}>
@@ -71,6 +71,6 @@ export function Movie() {
         )}
         {movies.length === 0 && <ToastContainer />}
       </Div>
-    </main>
+    </>
   );
 }

@@ -1,4 +1,15 @@
-import { Header, Ul, Img,ClickLink,DivLogo,Div, NavItem,Li } from './AppBar.styled';
+import React from 'react';
+import { useState, useEffect, useRef } from 'react';
+import {
+  Header,
+  Ul,
+  Img,
+  ClickLink,
+  DivLogo,
+  Div,
+  NavItem,
+  Li,
+} from './AppBar.styled';
 // import { Link } from 'react-router-dom';
 import logo from '../../assets/tmovie.png';
 
@@ -8,6 +19,23 @@ const navItems = [
 ];
 
 export const AppBar = () => {
+  // const headerRef = useRef(null);
+
+  // useEffect(() => {
+  //   const headerSshrink = () => {
+  //     if (
+  //       document.body.scrollTop > 100 ||
+  //       document.documentElement.scrollTop > 100
+  //     ) {
+  //       headerRef.current.classList.add('shrink');
+  //     } else headerRef.current.classList.remove('shrink');
+  //   };
+  //   window.addEventListener('scroll', headerSshrink);
+  //   return () => {
+  //     window.removeEventListener('scroll', headerSshrink);
+  //   };
+  // }, []);
+
   return (
     <Header>
       <Div>
