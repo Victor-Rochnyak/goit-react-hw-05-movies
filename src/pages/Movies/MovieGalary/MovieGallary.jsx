@@ -4,7 +4,15 @@ import { URL_POSTER } from 'components/Api/ApiConfig';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 // стилі
-import { Ul, Li, Img, Div,P } from '../MovieGalary/MoviesGalary.styled';
+import {
+  Ul,
+  Li,
+  Img,
+  Div,
+  P,
+  DivP,
+  NavItem,
+} from '../MovieGalary/MoviesGalary.styled';
 // import { toast } from 'react-toastify';
 // Рендер  інфо фільма в MovieGallary на сторінці Home
 export default function MovieGallary({ movies, isLoading }) {
@@ -18,7 +26,7 @@ export default function MovieGallary({ movies, isLoading }) {
         ) : (
           movies.map(({ id, original_title, poster_path, title }) => (
             <Li key={id}>
-              <NavLink to={`/movies/${id}`} state={{ from: location }}>
+              <NavItem to={`/movies/${id}`} state={{ from: location }}>
                 <Img
                   src={poster_path ? `${URL_POSTER}${poster_path}` : `no image`}
                   alt={title}
@@ -26,10 +34,10 @@ export default function MovieGallary({ movies, isLoading }) {
                   height={525}
                 />
 
-                <div>
+                <DivP>
                   <P>{original_title}</P>
-                </div>
-              </NavLink>
+                </DivP>
+              </NavItem>
             </Li>
           ))
         )}

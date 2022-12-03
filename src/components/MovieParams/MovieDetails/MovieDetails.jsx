@@ -5,12 +5,14 @@ import { getMovieDetails } from 'components/Api/Api';
 // import { IconContext } from 'react-icons';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { MovieInfo } from '../MovieInfo/MovieInfo';
-
+import styled from 'styled-components';
+import { URL_POSTER, URL_BACKDROP } from 'components/Api/ApiConfig';
 //Стилі
+
 import { Div } from './MovieDetails.styled';
 
 export function MovieDetails() {
-  const [movie, setMovie] = useState(0);
+  const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -35,6 +37,13 @@ export function MovieDetails() {
     <>
       {movie && (
         <main>
+          <Div
+            style={{
+              backgroundImage: `url(${URL_BACKDROP}${
+                movie.backdrop_path || movie.poster_rath
+              })`,
+            }}
+          ></Div>
           {isLoading ? <ClipLoader /> : <MovieInfo info={movie}></MovieInfo>}
           <div>
             <p> Additional information</p>

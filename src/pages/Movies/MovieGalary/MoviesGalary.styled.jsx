@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { NavLink } from 'react-router-dom';
 export const Div = styled.div`
   width: 1200px;
   margin-left: auto;
@@ -26,9 +26,13 @@ export const Li = styled.li`
     box-shadow: ${({ theme }) => theme.boxsh.boxshpr};
   }
   :hover p {
-    opacity: 1;
-    transform: translateX(0%) scale(1);
+    transform: scale(1);
+    color: ${p => p.theme.colors.green};
   }
+`;
+
+export const NavItem = styled(NavLink)`
+  text-decoration: none;
 `;
 
 export const Img = styled.img`
@@ -37,23 +41,24 @@ export const Img = styled.img`
   object-fit: cover;
   border-radius: 10px;
 `;
-export const P = styled.p`
-  transform: translateX(50% -50%) scale(0.9);
-  transition: opacity 100ms ease-in-out, transform 100ms ease-in-out;
-  opacity: 0;
+
+export const DivP = styled.div`
+  position: relative;
   display: flex;
-  align-items: center;
-  text-align: center;
   justify-content: center;
-  padding: 7px;
-  width: 93%;
-  height: 45px;
-  position: absolute;
-  bottom: -1px;
-  border-radius: 5px;
-  /* border: 1px solid #734cf7; */
+  text-align: center;
+    height: 50px;
+    align-items: center;
+`;
+
+export const P = styled.p`
+position: absolute;
+  transform: scale(0.9);
+  transition: opacity 100ms ease-in-out, transform 100ms ease-in-out;
   font-size: 18px;
-  font-weight: 700;
-  color: #734cf7;
-  /* background-color: rgb(115, 76, 247,0.66); */
+  font-weight: 500;
+  color: white;
+  
+
+  
 `;

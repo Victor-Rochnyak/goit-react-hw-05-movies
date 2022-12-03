@@ -55,7 +55,7 @@ export const Li = styled.li`
   position: relative;
   font-weight: 700;
   font-size: 1.5rem;
-  padding:4px 0;
+  padding: 4px 0;
 
   &:not(:last-child) {
     margin-right: 20px;
