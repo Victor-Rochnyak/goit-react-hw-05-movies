@@ -7,7 +7,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //стилі
-import { H1, Div, Form, Input } from './MovieInput.styled';
+import { H1, Div, Form, Input,Btn } from './MovieInput.styled';
 import { FaSearch } from 'react-icons/fa';
 
 export function Movie() {
@@ -51,18 +51,19 @@ export function Movie() {
     <>
       <Div>
         <H1>movie search</H1>
-        <Form action="" onSubmit={onFormSubmit}>
+        <Form className="search-bar" action=""  onSubmit={onFormSubmit}>
           <label htmlFor="">
             <Input
+            placeholder='text'
               type="text"
               name="query"
               value={query}
               onChange={handleChange}
             />
           </label>
-          <button type="submit" onClick={notify}>
+          <Btn  className="search-btn" type="submit" onClick={notify}>
             <FaSearch />
-          </button>
+          </Btn>
         </Form>
         {isLoading ? (
           <ClipLoader />
