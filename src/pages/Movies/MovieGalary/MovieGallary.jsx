@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { URL_POSTER } from 'components/Api/ApiConfig';
 import ClipLoader from 'react-spinners/ClipLoader';
 
