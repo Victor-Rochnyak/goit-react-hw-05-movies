@@ -1,19 +1,19 @@
 import React, { useEffect, useState, Suspense } from 'react';
-import { useParams, useLocation, Outlet, NavLink } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { getMovieDetails } from 'components/Api/Api';
 // import { HiBackspace } from 'react-icons/hi';
 // import { IconContext } from 'react-icons';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { MovieInfo } from '../MovieInfo/MovieInfo';
-import styled from 'styled-components';
-import { URL_POSTER, URL_BACKDROP } from 'components/Api/ApiConfig';
+
+
 //Стилі
 
 import {
-  Div,
-  MoveContent,
-  MovePoster,
-  MoveImg,
+  // Div,
+  // MoveContent,
+  // MovePoster,
+  // MoveImg,
   MoveDetails,UlCastReviews,H2Information,NavItem 
 } from './MovieDetails.styled';
 

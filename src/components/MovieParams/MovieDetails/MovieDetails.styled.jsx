@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { URL_BACKDROP } from 'components/Api/ApiConfig';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Div = styled.div`
   height: 80vh;
@@ -76,8 +75,6 @@ export const H2Information = styled.h2`
   color: ${p => p.theme.colors.fiolity};
   margin-top: 20px;
   margin-bottom: 20px;
-
-  /* margin-top: 50px; */
 `;
 export const NavItem = styled(NavLink)`
   font-size: 30px;

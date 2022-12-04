@@ -1,11 +1,10 @@
 import React from 'react';
-import { URL_POSTER, URL_BACKDROP } from 'components/Api/ApiConfig';
-import { HiBackspace } from 'react-icons/hi';
-import { IconContext } from 'react-icons';
-import { useLocation, NavLink } from 'react-router-dom';
+import { URL_POSTER } from 'components/Api/ApiConfig';
+// import { HiBackspace } from 'react-icons/hi';
+// import { IconContext } from 'react-icons';
+import { useLocation} from 'react-router-dom';
 
-import { getMovieDetails } from 'components/Api/Api';
-import { MovieDetails } from '../MovieDetails/MovieDetails';
+
 
 // стилі
 import {
@@ -15,18 +14,18 @@ import {
   MoveInfo,
   PosterInfo,
   Genres,
-  Item,SpanGenres,H1Title,Overview,POverview
+  SpanGenres,H1Title,Overview,POverview
 } from './MovieInfo.styled';
 
 export function MovieInfo({ info }) {
   const location = useLocation();
 
   const {
-    backdrop_path,
+    // backdrop_path,
     poster_path,
     original_title,
-    release_date,
-    vote_average,
+    // release_date,
+    // vote_average,
     overview,
     genres,
     

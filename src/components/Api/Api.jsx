@@ -2,21 +2,6 @@ import axios from 'axios';
 
 import { KEY, API } from './ApiConfig';
 
-// axios.defaults.baseURL = API;
-// axios.defaults.params = {
-//   api_key: KEY,
-//   language: 'en-US',
-// };
-
-// const getData = async url => {
-//   try {
-//     const response = await axios.get(url);
-//     return response;
-//   } catch (error) {
-//     toast.error('Sorry, We don`t have this film`s information');
-//   }
-// };
-
 export const getTrendingMovie = async () => {
   const response = await axios.get(`${API}3/trending/movie/day?api_key=${KEY}`);
   return response.data.results;
