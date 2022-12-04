@@ -50,7 +50,7 @@ export function Movie() {
   return (
     <>
       <Div>
-        <H1>поиск фильмов</H1>
+        <H1>movie search</H1>
         <Form action="" onSubmit={onFormSubmit}>
           <label htmlFor="">
             <Input

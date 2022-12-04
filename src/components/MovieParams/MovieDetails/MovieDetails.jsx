@@ -9,7 +9,13 @@ import styled from 'styled-components';
 import { URL_POSTER, URL_BACKDROP } from 'components/Api/ApiConfig';
 //Стилі
 
-import { Div,MoveContent,MovePoster,MoveImg,MoveDetails } from './MovieDetails.styled';
+import {
+  Div,
+  MoveContent,
+  MovePoster,
+  MoveImg,
+  MoveDetails,UlCastReviews,H2Information,NavItem 
+} from './MovieDetails.styled';
 
 export function MovieDetails() {
   const [movie, setMovie] = useState(null);
@@ -23,7 +29,7 @@ export function MovieDetails() {
         setIsLoading(true);
         const response = await getMovieDetails(movieId);
         setMovie(response);
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
       } catch (error) {
         console.log(error);
       } finally {
@@ -43,29 +49,29 @@ export function MovieDetails() {
               backgroundImage: `url(${URL_BACKDROP}${ movie.backdrop_path || movie.poster_path})`}}>   
           </Div> */}
           {/* <MoveContent className='move-content'> */}
-            {/* <MovePoster className='move-content__poster'>
+          {/* <MovePoster className='move-content__poster'>
               <MoveImg className='move-conteiner__poster__img' style={{
               backgroundImage: `url(${URL_BACKDROP}${ movie.poster_path || movie.backdrop_path})`}} ></MoveImg>
             </MovePoster> */}
-            {isLoading ? <ClipLoader/> : <MovieInfo info={movie}></MovieInfo>}
+          {isLoading ? <ClipLoader /> : <MovieInfo info={movie}></MovieInfo>}
           {/* </MoveContent> */}
           {/* {isLoading ? <ClipLoader /> : <MovieInfo info={movie}></MovieInfo>} */}
-          <MoveDetails className='move-deteil'>
-            <p> Additional information</p>
-            <ul>
-              <li>
-                <NavLink to="cast" state={{ from }}> 
-                  
-                  Cast
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="reviews"  state={{ from }}> 
-                 
-                  Reviews
-                </NavLink>
-              </li>
-            </ul>
+          <MoveDetails className="move-deteil">
+            <H2Information> Additional information</H2Information>
+            <div>
+              <UlCastReviews>
+                <li>
+                  <NavItem  to="cast" state={{ from }}>
+                    Cast
+                  </NavItem>
+                </li>
+                <li>
+                  <NavItem to="reviews" state={{ from }}>
+                    Reviews
+                  </NavItem>
+                </li>
+              </UlCastReviews>
+            </div>
             <Suspense fallback={<div>Loading...</div>}>
               <Outlet />
             </Suspense>

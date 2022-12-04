@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+
 export const Div = styled.div`
   width: 1200px;
   margin-left: auto;

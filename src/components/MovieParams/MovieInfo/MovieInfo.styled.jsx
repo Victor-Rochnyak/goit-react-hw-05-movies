@@ -3,18 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 import { URL_BACKDROP } from 'components/Api/ApiConfig';
 
-export const Div = styled.div`
+export const DivBackdrop = styled.div`
   position: relative;
   /* width: 100%; */
   /* height: 100%; */
   /* height: 73vh; */
   padding-top: 20px;
   /* padding-bottom: 20px; */
-  background-image: linear-gradient(
-      to right,
-      rgba(58, 58, 58, 0.5),
-      rgba(47, 48, 58, 0.5)
-    ),
+  background-image: 
     ${props => `url(${URL_BACKDROP}${props.backdrop.backdrop_path})`};
   background-size: cover;
   background-position: top;
@@ -39,7 +35,7 @@ export const Div = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 200px;
     background-image: linear-gradient(to top, #000000, transparent);
   }
 `;
@@ -60,17 +56,46 @@ export const MoveInfo = styled.div`
 `;
 
 export const PosterInfo = styled.div`
-  width: 70%;
+  width: 60%;
   padding: 2rem;
   position: relative;
 `;
 
-export const Jenres = styled.div`
-  &> * ~ * {
+export const Genres = styled.div`
+  &> * ~ span {
     margin-left: 0.5rem;
   }
+  margin-top: 50px;
 `;
-export const Item = styled.p`
+
+
+
+export const SpanGenres = styled.span`
   padding: 0.5rem 1.5rem;
   border: 2px solid white;
+  color: white;
+  border-radius: 20px;
+  font-size: .8rem;
+  font-weight: 600;
+  background-color: rgba(58, 58, 58, 0.5);;
+
+`;
+export const H1Title = styled.h1`
+  font-size: 3rem;
+    line-height: 1;
+    color: white;
+margin-bottom: 25px;
+`;
+
+export const Overview = styled.p`
+ font-size: 18px;
+    color: white;
+    margin-top: 25px;
+    width: 82%;
+`;
+export const POverview = styled.p`
+  margin-top: 76px;
+    font-weight: 700;
+    font-size: 29px;
+    color: white;
 `;

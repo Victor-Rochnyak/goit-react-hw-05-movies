@@ -9,13 +9,13 @@ import { MovieDetails } from '../MovieDetails/MovieDetails';
 
 // стилі
 import {
-  Div,
+  DivBackdrop,
   NavItem,
   Img,
   MoveInfo,
   PosterInfo,
-  Jenres,
-  Item,
+  Genres,
+  Item,SpanGenres,H1Title,Overview,POverview
 } from './MovieInfo.styled';
 
 export function MovieInfo({ info }) {
@@ -29,20 +29,21 @@ export function MovieInfo({ info }) {
     vote_average,
     overview,
     genres,
+    
   } = info;
 
   const from = location.state?.from ?? '/';
 
-  const getYear = () => new Date(`${release_date}`).getFullYear();
-  const getScore = () => Math.round(`${vote_average}` * 10);
+  // const getYear = () => new Date(`${release_date}`).getFullYear();
+  // const getScore = () => Math.round(`${vote_average}` * 10);
 
   return (
-    <Div backdrop={info}>
-      {/* <NavItem to={from}>
-       <IconContext.Provider value={{ color: '#734cf7' }}>
+    <DivBackdrop backdrop={info}>
+      <NavItem to={from}>
+       {/* <IconContext.Provider value={{ color: '#734cf7' }}>
          <HiBackspace size={35} />
-       </IconContext.Provider>
-     </NavItem> */}
+       </IconContext.Provider> */}
+     </NavItem>
       <MoveInfo>
         <Img
           src={poster_path ? `${URL_POSTER}${poster_path}` : 'no image'}
@@ -51,22 +52,23 @@ export function MovieInfo({ info }) {
           height="450"
         />
         <PosterInfo className="move-conteiner__poster__info">
-          <h1>
-            {original_title} ({getYear()})
-          </h1>
-          <p>Use Score : {getScore()}%</p>
-          <p>Overview:</p>
-          <p>{overview}</p>
-          <Jenres className="jenres">
+          <H1Title>
+            {original_title}
+            {/* ({getYear()}) */}
+          </H1Title>
+          {/* <p>Use Score : {getScore()}%</p> */}
+          <Genres className="jenres">
             {genres &&
               genres
                 .slice(0, 5)
-                .map((genre, i) => <span key={i}>{genre.name}</span>)}
+                .map((genre, i) => <SpanGenres key={i}>{genre.name}</SpanGenres>)}
+                <POverview>Overview:</POverview>
+                <Overview>{overview}</Overview>
             {/* <p>Genres:</p> */}
             {/* <Item>{genres.map(genre => genre.name).join(', ')}</Item> */}
-          </Jenres>
+          </Genres>
         </PosterInfo>
       </MoveInfo>
-    </Div>
+    </DivBackdrop>
   );
 }

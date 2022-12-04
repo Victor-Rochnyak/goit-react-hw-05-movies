@@ -11,7 +11,7 @@ export const theme = {
     muted: '#f6f6f6',
     fiolity: '#734cf7',
     green: '#39d7a9',
-    bgc:'#0f0f0f',
+    bgc:'#000000',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {

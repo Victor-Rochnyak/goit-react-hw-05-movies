@@ -4,6 +4,9 @@ import { getMovieCast } from 'components/Api/Api';
 import { URL_POSTER } from 'components/Api/ApiConfig';
 import ClipLoader from 'react-spinners/ClipLoader';
 
+//Стилі
+import { UlCast,LiCast,DivCast,DivName,PCharacter,PName } from './MovieCast.styled';
+
 export function MoviesCast() {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
@@ -29,13 +32,14 @@ export function MoviesCast() {
   }
 
   return (
-    <div>
+    <DivCast>
+    <UlCast>
       {isLoading ? (
         <ClipLoader />
       ) : (
         cast.map(({ profile_path, name, character, id }) => {
           return (
-            <li key={id}>
+            <LiCast key={id}>
               <img
                 src={
                   profile_path
@@ -45,14 +49,15 @@ export function MoviesCast() {
                 alt=""
                 width="200"
               />
-              <div>
-                <p>{name}</p>
-                <p>Character: {character}</p>
-              </div>
-            </li>
+              <DivName>
+                <PName>{name}</PName>
+                <PCharacter>Character: {character}</PCharacter>
+              </DivName>
+            </LiCast>
           );
         })
       )}
-    </div>
+    </UlCast>
+    </DivCast>
   );
 }

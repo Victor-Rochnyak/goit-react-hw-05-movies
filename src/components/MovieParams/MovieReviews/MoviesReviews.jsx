@@ -1,11 +1,18 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getMovieReviews } from "components/Api/Api"; 
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { getMovieReviews } from 'components/Api/Api';
 import ClipLoader from 'react-spinners/ClipLoader';
 
+// Стилі
+import {
+  PAuthor,
+  PContent,
+  DivContainer,
+  DivAuthorContent,DivImg,Img
+} from './MovieReviews.styled';
 
-export  function MoviesReviews() {
+export function MoviesReviews() {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +26,7 @@ export  function MoviesReviews() {
       } catch (error) {
         console.log(error);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
     }
     getMovieId();
@@ -30,18 +37,30 @@ export  function MoviesReviews() {
       {reviews.length === 0 ? (
         <ClipLoader />
       ) : (
-        <ul>
-          {isLoading ? (
-            <ClipLoader />
-          ) : (
-            reviews.map(({ id, author, content }) => (
-              <li key={id}>
-                <p>Author: {author}</p>
-                <p>{content}</p>
-              </li>
-            ))
-          )}
-        </ul>
+        <DivContainer>
+          <ul>
+            {isLoading ? (
+              <ClipLoader />
+            ) : (
+              reviews.map(({ id, author, content }) => (
+                <li key={id}>
+                  <DivAuthorContent>
+                    <PContent>{content}</PContent>
+                    <DivImg>
+                      
+                        <Img
+                          src="https://cdn.icon-icons.com/icons2/510/PNG/512/ios7-contact-outline_icon-icons.com_50287.png" width={50} height={50}
+                          alt=""
+                        />
+                      
+                      <PAuthor>Author: {author}</PAuthor>
+                    </DivImg>
+                  </DivAuthorContent>
+                </li>
+              ))
+            )}
+          </ul>
+        </DivContainer>
       )}
     </>
   );

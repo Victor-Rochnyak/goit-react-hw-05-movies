@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { URL_BACKDROP } from 'components/Api/ApiConfig';
+import { Link, NavLink } from 'react-router-dom';
 
 export const Div = styled.div`
   height: 80vh;
@@ -42,20 +43,59 @@ export const MoveContent = styled.div`
 `;
 
 export const MovePoster = styled.div`
-flex:1;
-
+  flex: 1;
 `;
 export const MoveImg = styled.div`
- background-position: center;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px;
   padding-top: 135%;
-
 `;
 
 export const MoveDetails = styled.div`
-/* position: absolute;
+  /* position: absolute;
     bottom: -46px; */
+`;
 
+export const UlCastReviews = styled.ul`
+  & > * ~ li {
+    margin-left: 1rem;
+  }
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+`;
+
+export const H2Information = styled.h2`
+  & > * ~ li {
+    margin-left: 1rem;
+  }
+  display: flex;
+  justify-content: center;
+  color: ${p => p.theme.colors.fiolity};
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  /* margin-top: 50px; */
+`;
+export const NavItem = styled(NavLink)`
+  font-size: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+  font-family: 'Segoe UI';
+  transition:  duration 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
+  &.active {
+    color: ${p => p.theme.colors.green};
+    border-bottom: 2px solid ${p => p.theme.colors.fiolity};
+  }
+  :hover:not(.active),
+  :focus-visible:not(.active) {
+    
+    color: ${p => p.theme.colors.green};
+    border-bottom: 2px solid ${p => p.theme.colors.fiolity};
+  }
 `;
